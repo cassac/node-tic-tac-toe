@@ -32,6 +32,7 @@ class Board {
   }
   print() {
     // print board to console
+    console.log(this.board);
   }
 }
 
@@ -62,11 +63,15 @@ const play = () => {
   const board = new Board();
   // create new game instance
   const game = new Game();
+  board.print();
   // while game is in play
   while (game.inPlay) {
+    // ask current player to go
     // print board
     board.print();
-    // ask current player to go
+    rl.question(`Player ${game.whoseTurn}'s Turn. Type x, y coordinates.`, (res) => {
+      board.addPiece()
+    })
     const [ x, y ] = ...game.promptPlayer();
     // insert piece
     board.insertPiece(x, y, whoseTurn)
@@ -76,3 +81,4 @@ const play = () => {
     game.nextTurn();
   }
 }
+play()
