@@ -2,6 +2,8 @@
 class Board {
   // Constructor
   constructor() {
+    // Game is in play
+    this.inPlay = true;
     // piece count
     this.count = 0,
     // array of board
@@ -14,7 +16,7 @@ class Board {
     this.board[x][y] = player;
   }
   // Win detection
-  detectWin() {
+  detectGameOver() {
     // scan board for win
       // announce winner if found
       // end game
@@ -48,3 +50,13 @@ class Game {
     return !this.turn ? 'X' : 'O';
   }
 }
+
+// Main
+  // create new game instance
+  // create new board instance
+  // while game is in play
+    // print board
+    // ask current player to go
+    // insert piece
+    // detect win (and if tie game)
+    // go to next turn
