@@ -1,3 +1,5 @@
+var rl = require('./config').rl;
+
 // Board class
 class Board {
   // Constructor
