@@ -24,11 +24,11 @@ class Board {
       // end game
   }
   // Reset board
-  initBoard() {
+  init() {
     // return board to initial state
     this.board = Array(3).fill([null, null, null]);
   }
-  printBoard() {
+  print() {
     // print board to console
   }
 }
@@ -46,17 +46,31 @@ class Game {
     return this.turn ? 'X' : 'O'; 
   }
   // Who won
-  currentTurn() {
+  whoseTurn() {
     return !this.turn ? 'X' : 'O';
+  }
+  promptPlayer() {
+    // ask player for coordinates of move
+    // return player response
   }
 }
 
-// Main
-  // create new game instance
+const play = () => {
   // create new board instance
+  const board = new Board();
+  // create new game instance
+  const game = new Game();
   // while game is in play
+  while (game.inPlay) {
     // print board
+    board.print();
     // ask current player to go
+    const [ x, y ] = ...game.promptPlayer();
     // insert piece
+    board.insertPiece(x, y, whoseTurn)
     // detect win (and if tie game)
+    board.detectGameOver()
     // go to next turn
+    game.nextTurn();
+  }
+}
